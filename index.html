@@ -28,6 +28,14 @@
                     <i class="fa-solid fa-trash" @click="removeItem(item.id)"></i>
                 </li>
             </ul>
+            <div>
+                <h2>inserisci to do</h2>
+                <div class="mb-3">
+                    <label for="todotext" class="form-label">Inserisci to do</label>
+                    <input type="text" class="form-control" id="todotext" v-model="itemText" @keyup.enter="addTodo">
+                    <button class="btn btn-primary my-2" @click="addTodo">Add</button>
+                  </div>
+            </div>
         </main>
     </div>
 </body>

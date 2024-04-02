@@ -5,7 +5,8 @@ const {createApp} = Vue;
 createApp({
     data(){
         return{
-            todo: todo
+            todo: todo,
+            itemText: ''
         }
     },
     methods:{
@@ -14,6 +15,23 @@ createApp({
             if(i!== -1){
                 this.todo.splice(i, 1);
             }
+        },
+        addTodo(){
+            const newObj = {
+                id: null,
+                text: this.itemText,
+                done: false
+            }
+            let nextId = 0;
+            this.todo.forEach((el) => {
+                if(nextId < el.id){
+                    nextId = el.id;
+                }
+            });
+            newObj.id = nextId + 1;
+            this.todo.push(newObj);
+            this.itemText = '';
+            //console.log(this.todo);
         }
     },
     mounted(){

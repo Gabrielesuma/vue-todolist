@@ -32,6 +32,14 @@ createApp({
             this.todo.push(newObj);
             this.itemText = '';
             //console.log(this.todo);
+        },
+        toogleItem(id){
+            const item = this.todo.find((el) => {
+                return el.id === id;
+            })
+            if(item){
+                item.done = !item.done;
+            }
         }
     },
     mounted(){

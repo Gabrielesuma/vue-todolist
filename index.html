@@ -22,7 +22,7 @@
         <main class="container my-4 bg-light">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item d-flex justify-content-between" v-for="(item, index) in todo" :key="item.id">
-                    <span :class="{'text-decoration-line-through': item.done === true}">
+                    <span :class="{'text-decoration-line-through': item.done === true}" @click="toogleItem(item.id)">
                         {{item.text}}
                     </span>
                     <i class="fa-solid fa-trash" @click="removeItem(item.id)"></i>
